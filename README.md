@@ -7,16 +7,16 @@ The model eventually predicts the time for the full size of the data.
 
 This project is composed of a single R script. This markdown acts as a help page for the function.
 Running the script requires the following R packages (all available from the CRAN website)
-ggplot2, lubridate, boot
+*ggplot2, lubridate, boot*
 
 ## Details
 
-The rationale under the estimation process is that computation time of an algorithm usually has a pretty constant behaviour with data size: some are independant of the size (think of the `length` function), others need a time in cubic proportion of the number of rows. 
+The rationale under the estimation process is that computation time of an algorithm usually has a pretty constant behaviour with regard to data size: some are independant from the size (think of the `length` function), others need a time in cubic proportion of the number of rows. 
 The `CompuTimeEstimate` function is fully configurable (see Arguments paragraph) and lets the user input the amount of time he has to run the estimation. The more time (usually 1 minute is enough) the more precise the estimation.
 A significance test is added to alert the user when the model is not satisfactory enough. Replicates can be added at each point to make it more robust. 
 
-The comparison between the models is achieved through a LOO (leave-one-out) routine: it withdraws each tested size one at a time from the model, and predicts on it. The best model on this criteria is choosen.
-To avoid having a too big testing grid, the sample size grid is defined as a geometric sequence of base 2 (the base can be changed). The inconvenient of this practice is that the small samples might get a higher influence in the model. A future version shall correct this by adding weights.
+The comparison between the models is achieved through a LOO (**leave-one-out**) routine: it withdraws each tested size one at a time from the model, and predicts on it. The best model on this criteria is choosen.
+To avoid having too big a testing grid, the sample size grid is defined as a *geometric sequence of base 2* (which can be changed). The inconvenient of this practice is that the small samples might get a higher influence in the model. A future version shall correct this by adding weights.
 
 ## Arguments
 
