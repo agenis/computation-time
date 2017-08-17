@@ -1,9 +1,12 @@
 ## Generalities
 
-This project enables an R user to **estimate the computation time of a difficult algorithm before fully running it**. 
+This project enables an R user to **estimate the computation time of a complex algorithm before fully running it**. 
 The algorithm is run on an set of increasing-sizes **small portions of the data**. 
 Various models are then fitted to capture the **computationnal efficiency trend** (independant o(1) , linear o(n) , quadratic o(n2), etc.) likely to best fit the algorithm;
 The model eventually predicts the time for the full size of the data. 
+
+More information on the subject of algorithmic time complexity on the [wikipedia page](http://en.wikipedia.org/wiki/Time_complexity). 
+
 
 This project is composed of a single R script. This markdown acts as a help page for the function.
 Running the script requires the following R packages (all available from the CRAN website)
@@ -17,6 +20,9 @@ A significance test is added to alert the user when the model is not satisfactor
 
 The comparison between the models is achieved through a LOO (**leave-one-out**) routine: it withdraws each tested size one at a time from the model, and predicts on it. The best model on this criteria is choosen.
 To avoid having too big a testing grid, the sample size grid is defined as a *geometric sequence of base 2* (which can be changed). The inconvenient of this practice is that the small samples might get a higher influence in the model. A future version shall correct this by adding weights.
+
+The time complexity classes already implemented are the following:
+*constant time, linear time, quadratic time, cubic time, fractional power*
 
 ## Arguments
 
